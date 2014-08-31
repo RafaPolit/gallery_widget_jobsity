@@ -71,7 +71,7 @@
 }
 
 .gallery-widget .thumbnail.active {
-  -webkit-box-shadow: 0px 0px 15px rgba(250,140,0,1);
+  box-shadow: 0px 0px 15px rgba(250,140,0,1);
 }
 
 .gallery-widget .thumbnail-scroll img {

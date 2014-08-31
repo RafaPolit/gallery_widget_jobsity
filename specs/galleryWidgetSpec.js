@@ -90,7 +90,7 @@ describe('Gallery Widget', function() {
       it('should set the active class on the corresponding thumbnail and remove it from others', function() {
         var firstImage = thumbnailWidget.elements.thumbnails[0];
         var secondImage = thumbnailWidget.elements.thumbnails[1];
-        var event = { srcElement: secondImage };
+        var event = { target: secondImage };
 
         thumbnailWidget.changeImage(event);
 
@@ -100,7 +100,7 @@ describe('Gallery Widget', function() {
 
       it('should swap currently staged mainImage with newly selected one', function() {
         var thirdImage = thumbnailWidget.elements.thumbnails[2];
-        var event = { srcElement: thirdImage };
+        var event = { target: thirdImage };
 
         thumbnailWidget.changeImage(event);
 

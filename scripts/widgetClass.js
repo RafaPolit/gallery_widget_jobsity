@@ -15,18 +15,18 @@ var Widget = function(widget) {
     },
 
     changeImage: function(event) {
-      var clicked_image = event.srcElement.getAttribute('data-index');
+      var clickedImage = event.target.getAttribute('data-index');
 
       this.elements.mainImages[this.elements.activeImage].className = 'main-image exit-to-left on-left';
-      this.elements.mainImages[clicked_image].className = 'main-image enter-from-right';
-      this.setActiveThumbnail(clicked_image);
+      this.elements.mainImages[clickedImage].className = 'main-image enter-from-right';
+      this.setActiveThumbnail(clickedImage);
 
-      this.elements.activeImage = clicked_image;
+      this.elements.activeImage = clickedImage;
     },
 
     initializeThumbnails: function() {
       this.createThumbnailContainer(this.widget);
-      
+
       if(this.widget.getAttribute('data-mode') === 'thumbnail') {
         this.widget.appendChild(this.elements.thumbnailContainer);
       }
