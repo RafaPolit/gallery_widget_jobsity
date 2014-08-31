@@ -3,12 +3,16 @@
 
 var galleryWidget = {
 
-  initializeWidgets: function() {
-    var widgets = document.getElementsByClassName('gallery-widget');
+  widgets: [],
 
-    for(var index = 0; index < widgets.length; index ++) {
-      var widget = new Widget(widgets[index]);
+  initializeWidgets: function() {
+    var htmlWidgets = document.getElementsByClassName('gallery-widget');
+    var widgets = this.widgets;
+
+    for(var index = 0; index < htmlWidgets.length; index ++) {
+      var widget = new Widget(htmlWidgets[index]);
       widget.initializeWidget();
+      widgets.push(widget);
     }
   }
 
@@ -16,7 +20,9 @@ var galleryWidget = {
 
 /* -------------------------------------------------------------- */
 /* Window Onload - All images loaded ---------------------------- */
-window.addEventListener('load', galleryWidget.initializeWidgets);
+window.addEventListener('load', function() {
+  galleryWidget.initializeWidgets();
+});
 /* -------------------------------------------------------------- */
 
 

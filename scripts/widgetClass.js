@@ -6,49 +6,85 @@ var Widget = function(widget) {
 
     widget: widget,
 
-    initializeWidget: function() {
-      if(this.widget.getAttribute('data-mode') === 'thumbnail') {
-        this.initializeThumbnails();
-      }
+    elements: { thumbnails: [] },
 
-      var mainImageContainer = this.createMainImageContainer(this.widget);
-      this.widget.appendChild(mainImageContainer);
+    initializeWidget: function() {
+      this.initializeThumbnails();
+      this.createMainImageContainer(this.widget);
+      this.widget.appendChild(this.elements.mainImageContainer);
+    },
+
+    changeImage: function(event) {
+      var clicked_image = event.srcElement.getAttribute('data-index');
+      this.setActiveThumbnail(clicked_image);
     },
 
     initializeThumbnails: function() {
-      var thumbnailContainer = this.createThumbnailContainer(this.widget);
-      this.widget.appendChild(thumbnailContainer);
+      if(this.widget.getAttribute('data-mode') === 'thumbnail') {
+        this.createThumbnailContainer(this.widget);
+        this.widget.appendChild(this.elements.thumbnailContainer);
+      }
     },
 
     createThumbnailContainer: function () {
       var thumbnailContainer = createElement({ tag: 'div', class: 'thumbnail-scroll' });
-      this.createThumbnails(thumbnailContainer);
-      
-      return thumbnailContainer; 
+      this.elements.thumbnailContainer = thumbnailContainer;
+      this.createThumbnails();
     },
 
-    createThumbnails: function(thumbnailContainer) {
-      for(var index = 0; index < this.widget.getElementsByTagName('img').length; index++) {
-        var img = this.widget.getElementsByTagName('img')[index].cloneNode();
-        img.className = 'thumbnail' + ((index === 0) ? ' active' : '');
-        thumbnailContainer.appendChild(img);
+    createThumbnails: function() {
+      var _this = this;
+      function clickItem(event) { _this.changeImage(event); }
 
-        var br = document.createElement('br');
-        thumbnailContainer.appendChild(br);
+      for(var index = 0; index < this.widget.getElementsByTagName('img').length; index++) {
+        this.createThumbnail(index, clickItem);
+        this.setActiveThumbnail(0);
+      }
+    },
+
+    createThumbnail: function(index, clickItem) {
+      var thumbnail = this.getThumbnail(index);
+      var br = document.createElement('br');
+
+      thumbnail.addEventListener('click', clickItem);
+
+      this.elements.thumbnails.push(thumbnail);
+      this.elements.thumbnailContainer.appendChild(thumbnail);
+      this.elements.thumbnailContainer.appendChild(br);
+    },
+
+    getThumbnail: function(index)  {
+      var thumbnail = this.widget.getElementsByTagName('img')[index].cloneNode();
+      thumbnail.className = 'thumbnail';
+      thumbnail.setAttribute('data-index', index);
+      return thumbnail;
+    },
+
+    setActiveThumbnail: function(index) {
+      this.setAllThumbnailsInactive();
+      this.elements.thumbnails[index].className += ' active';
+    },
+
+    setAllThumbnailsInactive: function() {
+      for(var img = 0; img < this.elements.thumbnails.length; img++) {
+        var thumbnail = this.elements.thumbnails[img];
+        thumbnail.className = thumbnail.className.replace(' active', '');
       }
     },
 
     createMainImageContainer: function() {
-      var mainImageContainer = createElement({ tag: 'div', class: 'main-image-container' });
+      this.elements.mainImageContainer = createElement({ tag: 'div', class: 'main-image-container' });
+      this.createMainImage();
+    },
 
+    createMainImage: function() {
       var mainImage = createElement({ tag: 'div', class: 'main-image enter-from-right' });
-      mainImageContainer.appendChild(mainImage);
-
       var first_image_src = this.widget.getElementsByTagName('img')[0].getAttribute('src');
       var img = createElement({ tag: 'img', attributes: { src: first_image_src } });
+
       mainImage.appendChild(img);
 
-      return mainImageContainer;
+      this.elements.mainImageContainer.appendChild(mainImage);
     }
 
   };
