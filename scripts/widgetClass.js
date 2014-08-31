@@ -112,12 +112,25 @@ var Widget = function(widget) {
 
     createMainImage: function(index, clickItem) {
       var className = 'main-image ' + ((index === 0) ? 'enter-from-right' : 'on-right');
-
       var mainImage = createElement({ tag: 'div', class: className });
+      var tableCell = this.createTableCell(index, clickItem);
 
-      var tableCell = createElement({ tag: 'div', class: 'table-cell'});
       mainImage.appendChild(tableCell);
 
+      this.elements.mainImages.push(mainImage);
+      this.elements.mainImageContainer.appendChild(mainImage);
+    },
+
+    createTableCell: function(index, clickItem) {
+      var tableCell = createElement({ tag: 'div', class: 'table-cell'});
+
+      var img = this.createTableCellImg(index, clickItem);
+      tableCell.appendChild(img);
+
+      return tableCell;
+    },
+
+    createTableCellImg: function(index, clickItem) {
       var img = createElement({
         tag: 'img',
         attributes: {
@@ -126,14 +139,9 @@ var Widget = function(widget) {
         }
       });
 
-      if(this.widget.getAttribute('data-mode') === 'single') {
-        img.onclick = clickItem;
-      }
+      if(this.widget.getAttribute('data-mode') === 'single') { img.onclick = clickItem; }
 
-      tableCell.appendChild(img);
-      this.elements.mainImages.push(mainImage);
-
-      this.elements.mainImageContainer.appendChild(mainImage);
+      return img;
     }
 
   };
