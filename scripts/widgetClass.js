@@ -11,6 +11,10 @@ var Widget = function(widget) {
     status: { activeImage: 0 },
 
     initializeWidget: function() {
+      if(this.widget.getAttribute('data-mode') === 'single') {
+        this.widget.className = 'gallery-widget single-mode';
+      }
+
       this.initializeThumbnails();
       this.createMainImageContainer(this.widget);
       this.widget.appendChild(this.elements.mainImageContainer);
@@ -24,6 +28,13 @@ var Widget = function(widget) {
       this.setActiveThumbnail(clickedImage);
 
       this.status.activeImage = clickedImage;
+    },
+
+    nextImage: function(event) {
+      var clickedImage = event.target.getAttribute('data-index');
+      var nextImageIndex = ((Number(clickedImage) + 1) % this.elements.mainImages.length);
+      var nextImageEvent = { target: this.elements.thumbnails[nextImageIndex] };
+      this.changeImage(nextImageEvent);
     },
 
     initializeThumbnails: function() {
@@ -54,7 +65,7 @@ var Widget = function(widget) {
       var thumbnail = this.getThumbnail(index);
       var br = document.createElement('br');
 
-      thumbnail.addEventListener('click', clickItem);
+      thumbnail.onclick = clickItem;
 
       this.elements.thumbnails.push(thumbnail);
       this.elements.thumbnailContainer.appendChild(thumbnail);
@@ -69,15 +80,9 @@ var Widget = function(widget) {
     },
 
     setActiveThumbnail: function(index) {
-      this.setAllThumbnailsInactive();
+      var activeImage = this.elements.thumbnails[this.status.activeImage];
+      activeImage.className = activeImage.className.replace(' active', '');
       this.elements.thumbnails[index].className += ' active';
-    },
-
-    setAllThumbnailsInactive: function() {
-      for(var img = 0; img < this.elements.thumbnails.length; img++) {
-        var thumbnail = this.elements.thumbnails[img];
-        thumbnail.className = thumbnail.className.replace(' active', '');
-      }
     },
 
     createMainImageContainer: function() {
@@ -86,21 +91,33 @@ var Widget = function(widget) {
     },
 
     createMainImages: function() {
+      var _this = this;
+      function clickItem(event) { _this.nextImage(event); }
+
       for(var index = 0; index < this.elements.thumbnails.length; index++) {
-        this.createMainImage(index);
+        this.createMainImage(index, clickItem);
       }
     },
 
-    createMainImage: function(index) {
+    createMainImage: function(index, clickItem) {
       var className = 'main-image ' + ((index === 0) ? 'enter-from-right' : 'on-right');
+
       var mainImage = createElement({ tag: 'div', class: className });
 
       var tableCell = createElement({ tag: 'div', class: 'table-cell'});
       mainImage.appendChild(tableCell);
 
-      var img = createElement(
-        {tag: 'img', attributes: { src: this.elements.thumbnails[index].getAttribute('src') }
+      var img = createElement({
+        tag: 'img',
+        attributes: {
+          src: this.elements.thumbnails[index].getAttribute('src'),
+          'data-index': index
+        }
       });
+
+      if(this.widget.getAttribute('data-mode') === 'single') {
+        img.onclick = clickItem;
+      }
 
       tableCell.appendChild(img);
       this.elements.mainImages.push(mainImage);

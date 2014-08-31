@@ -13,13 +13,13 @@
 }
 
 @-webkit-keyframes enterFromRight {
-    from { left: 740px; }
+    from { left: 760px; }
     to { left: 0px; }
 }
 
 @-webkit-keyframes exitToLeft {
     from { left: 0px; }
-    to { left: -740px; }
+    to { left: -760px; }
 }
 
 
