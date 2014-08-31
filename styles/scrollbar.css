@@ -1,0 +1,22 @@
+/* -------------------------------------------------- */
+/* Scrollbar ---------------------------------------- */
+.gallery-widget ::-webkit-scrollbar {
+    width: 6px;
+}
+/* Track */
+.gallery-widget ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+/* Handle */
+.gallery-widget ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(230,140,17,0.8); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2); 
+}
+.gallery-widget ::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(230,140,17,0.4); 
+}
+/* -------------------------------------------------- */
