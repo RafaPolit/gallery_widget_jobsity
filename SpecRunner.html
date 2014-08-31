@@ -6,19 +6,32 @@
 
     <link rel="shortcut icon" type="image/png" href="testing_suit/jasmine-2.0.2/jasmine_favicon.png">
     <link rel="stylesheet" type="text/css" href="testing_suit/jasmine-2.0.2/jasmine.css">
+  </head>
+
+  <body>
+    <div style="display: none">
+      <!-- Start: Test Scenarios -->
+      <div class="gallery-widget" data-mode="thumbnail">
+        <img src="images/Barcelona_MNAC_9671.jpg" alt="">
+        <img src="images/Florencia_Pieta_5780.jpg" alt="">
+        <img src="images/Louvre_AmoreYPsique_2018.jpg" alt="">
+      </div>
+
+      <div class="gallery-widget" data-mode="single">
+        <img src="images/Barcelona_MNAC_9671.jpg" alt="">
+        <img src="images/Florencia_Pieta_5780.jpg" alt="">
+        <img src="images/Louvre_AmoreYPsique_2018.jpg" alt="">
+        <img src="images/Louvre_Piramide_2136.jpg" alt="">
+      </div>
+      <!-- End: Test Scenarios -->
+    </div>
 
     <script type="text/javascript" src="testing_suit/jasmine-2.0.2/jasmine.js"></script>
     <script type="text/javascript" src="testing_suit/jasmine-2.0.2/jasmine-html.js"></script>
     <script type="text/javascript" src="testing_suit/jasmine-2.0.2/boot.js"></script>
-
     <!-- include source files here... -->
     <script type="text/javascript" src="scripts/galleryWidget.js"></script>
-
     <!-- include spec files here... -->
     <script type="text/javascript" src="specs/galleryWidgetSpec.js"></script>
-
-  </head>
-
-  <body>
   </body>
 </html>
