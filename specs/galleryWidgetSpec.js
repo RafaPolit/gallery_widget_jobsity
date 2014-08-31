@@ -2,8 +2,8 @@
 
 describe('Gallery Widget', function() {
 
-  it('should test', function() {
-    expect(true).toBe(false);
+  it('should initialize widgets on document load', function() {
+    expect(widgets.length).toBe(2);
   });
 
 });
