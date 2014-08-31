@@ -90,15 +90,11 @@ var widgetDOM = function(widget) {
       return tableCell;
     },
 
-    createTableCellImg: function(index, clickItem) {
+    createTableCellImg: function(index) {
       var img = createElement({
         tag: 'img',
         attributes: this.getImageAttributes(index)
       });
-
-      if(widget.status.dataMode === 'single') {
-        img.onclick = clickItem;
-      }
 
       return img;
     },
