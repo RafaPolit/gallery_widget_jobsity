@@ -22,17 +22,17 @@ describe('Gallery Widget', function() {
     });
 
     it('should populate each widget elements property', function() {
-      expect(thumbnailWidget.elements.mainImageContainer)
+      expect(thumbnailWidget.DOM.mainImageContainer)
       .toBe(thumbnailElement.getElementsByClassName('main-image-container')[0]);
 
-      expect(thumbnailWidget.elements.thumbnailContainer)
+      expect(thumbnailWidget.DOM.thumbnailContainer)
       .toBe(thumbnailElement.getElementsByClassName('thumbnail-scroll')[0]);
 
-      expect(singleWidget.elements.imageNumber)
+      expect(singleWidget.DOM.imageNumber)
       .toBe(singleElement.getElementsByClassName('image-number')[0]);
 
-      expect(thumbnailWidget.elements.thumbnails.length).toBe(3);
-      expect(thumbnailWidget.elements.mainImages.length).toBe(3);
+      expect(thumbnailWidget.DOM.thumbnails.length).toBe(3);
+      expect(thumbnailWidget.DOM.mainImages.length).toBe(3);
     });
 
     describe('Main Images', function() {
@@ -54,7 +54,7 @@ describe('Gallery Widget', function() {
       });
 
       it('should include the index of each item', function() {
-        var secondImage = thumbnailWidget.elements.mainImages[1].getElementsByTagName('img')[0];
+        var secondImage = thumbnailWidget.DOM.mainImages[1].getElementsByTagName('img')[0];
         expect(secondImage.getAttribute('data-index')).toBe('1');
       });
 
@@ -77,12 +77,12 @@ describe('Gallery Widget', function() {
       });
 
       it('should include the index of each item', function() {
-        var secondImage = thumbnailWidget.elements.thumbnails[1];
+        var secondImage = thumbnailWidget.DOM.thumbnails[1];
         expect(secondImage.getAttribute('data-index')).toBe('1');
       });
 
       it('should add an onclick function', function() {
-        var secondImage = thumbnailWidget.elements.thumbnails[1];
+        var secondImage = thumbnailWidget.DOM.thumbnails[1];
         expect(secondImage.onclick).toEqual(jasmine.any(Function));
       });
 
@@ -107,16 +107,16 @@ describe('Gallery Widget', function() {
       });
 
       it('should add text to the image-number section', function() {
-        expect(singleWidget.elements.imageNumber.innerHTML).toBe('1<span class="smaller"> / 3</span>');
+        expect(singleWidget.DOM.imageNumber.innerHTML).toBe('1<span class="smaller"> / 3</span>');
       });
 
       it('should add an onclick function if on single mode', function() {
-        var mainImage = singleWidget.elements.mainImages[1].getElementsByTagName('img')[0];
+        var mainImage = singleWidget.DOM.mainImages[1].getElementsByTagName('img')[0];
         expect(mainImage.onclick).toEqual(jasmine.any(Function));
       });
 
       it('should not add an onclick function if on thumbnail mode', function() {
-        var mainImage = thumbnailWidget.elements.mainImages[1].getElementsByTagName('img')[0];
+        var mainImage = thumbnailWidget.DOM.mainImages[1].getElementsByTagName('img')[0];
         expect(mainImage.onclick).toBe(null);
       });
       
@@ -129,7 +129,7 @@ describe('Gallery Widget', function() {
     describe('changeImage (attached to onclick event)', function() {
 
       beforeEach(function() {
-        clickElement(thumbnailWidget.elements.thumbnails[0]);
+        clickElement(thumbnailWidget.DOM.thumbnails[0]);
       });
 
       it('should set original Active Image as first image', function() {
@@ -137,13 +137,13 @@ describe('Gallery Widget', function() {
       });
 
       it('should set new Active Image on click', function() {
-        clickElement(thumbnailWidget.elements.thumbnails[2]);
+        clickElement(thumbnailWidget.DOM.thumbnails[2]);
         expect(thumbnailWidget.status.activeImage).toBe('2');
       });
 
       it('should set the active class on the corresponding thumbnail and remove it from others', function() {
-        var firstImage = thumbnailWidget.elements.thumbnails[0];
-        var secondImage = thumbnailWidget.elements.thumbnails[1];
+        var firstImage = thumbnailWidget.DOM.thumbnails[0];
+        var secondImage = thumbnailWidget.DOM.thumbnails[1];
 
         clickElement(secondImage);
 
@@ -152,10 +152,9 @@ describe('Gallery Widget', function() {
       });
 
       it('should swap currently staged mainImage with newly selected one', function() {
-        clickElement(thumbnailWidget.elements.thumbnails[2]);
-
-        expect(thumbnailWidget.elements.mainImages[0].className).toBe('main-image exit-stage on-left');
-        expect(thumbnailWidget.elements.mainImages[2].className).toBe('main-image enter-stage');
+        clickElement(thumbnailWidget.DOM.thumbnails[2]);
+        expect(thumbnailWidget.DOM.mainImages[0].className).toBe('main-image exit-stage on-left');
+        expect(thumbnailWidget.DOM.mainImages[2].className).toBe('main-image enter-stage');
       });
 
     });
@@ -163,7 +162,7 @@ describe('Gallery Widget', function() {
     describe('nextImage (attached to onclick event)', function() {
 
       beforeEach(function() {
-        clickElement(singleWidget.elements.mainImages[0].getElementsByTagName('img')[0]);
+        clickElement(singleWidget.DOM.mainImages[0].getElementsByTagName('img')[0]);
       });
 
       it('should set image 2 (index 1) as Active Image', function() {
@@ -171,13 +170,12 @@ describe('Gallery Widget', function() {
       });
 
       it('should set 2/n on the image number section', function() {
-        expect(singleWidget.elements.imageNumber.innerHTML).toBe('2<span class="smaller"> / 3</span>');
+        expect(singleWidget.DOM.imageNumber.innerHTML).toBe('2<span class="smaller"> / 3</span>');
       });
 
-      it('should set image 1(index 0) as Active Image after last image', function() {
-        clickElement(singleWidget.elements.mainImages[1].getElementsByTagName('img')[0]);
-        clickElement(singleWidget.elements.mainImages[2].getElementsByTagName('img')[0]);
-
+      it('should set image 1 (index 0) as Active Image after last image', function() {
+        clickElement(singleWidget.DOM.mainImages[1].getElementsByTagName('img')[0]);
+        clickElement(singleWidget.DOM.mainImages[2].getElementsByTagName('img')[0]);
         expect(singleWidget.status.activeImage).toBe('0');
       });
 

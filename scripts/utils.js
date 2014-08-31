@@ -29,3 +29,10 @@ function createElement(options) {
   return element;
 }
 /* ----------------------------------------------------- */
+
+/* ----------------------------------------------------- */
+// Format the image number
+function formatImageNumber(number, total) {
+  return number + '<span class="smaller"> / ' + total + '</span>';
+}
+/* ----------------------------------------------------- */
