@@ -14,8 +14,11 @@ h1.header {
   border-bottom: 1px solid #999;
 }
 
-.dummy {
-  height: 0px;
-  float: none;
-  clear: both;
+h1 span.smaller.grey {
+  color: #444;
+  font-size: 50%;
+}
+
+.space-8 {
+  height: 8px;
 }

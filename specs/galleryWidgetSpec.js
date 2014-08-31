@@ -53,7 +53,7 @@ describe('Gallery Widget', function() {
         expect(secondImage.className).toBe('thumbnail');
       });
 
-      it('should append the active class to the first image', function() {
+      it('should set the active class to the first image', function() {
         var thumbnailContainer = thumbnailElement.getElementsByClassName('thumbnail-scroll')[0];
         var firstImage = thumbnailContainer.getElementsByTagName('img')[0];
 
@@ -93,11 +93,12 @@ describe('Gallery Widget', function() {
         var event = { srcElement: secondImage };
 
         thumbnailWidget.changeImage(event);
+
         expect(firstImage.className).toBe('thumbnail');
         expect(secondImage.className).toBe('thumbnail active');
       });
 
-      it('should swap currently staged mainImage with other', function() {
+      it('should swap currently staged mainImage with newly selected one', function() {
         var thirdImage = thumbnailWidget.elements.thumbnails[2];
         var event = { srcElement: thirdImage };
 
@@ -105,7 +106,6 @@ describe('Gallery Widget', function() {
 
         expect(thumbnailWidget.elements.mainImages[0].className).toBe('main-image exit-to-left on-left');
         expect(thumbnailWidget.elements.mainImages[2].className).toBe('main-image enter-from-right');
-
       });
 
     });

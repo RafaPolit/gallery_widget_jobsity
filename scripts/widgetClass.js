@@ -25,8 +25,9 @@ var Widget = function(widget) {
     },
 
     initializeThumbnails: function() {
+      this.createThumbnailContainer(this.widget);
+      
       if(this.widget.getAttribute('data-mode') === 'thumbnail') {
-        this.createThumbnailContainer(this.widget);
         this.widget.appendChild(this.elements.thumbnailContainer);
       }
     },

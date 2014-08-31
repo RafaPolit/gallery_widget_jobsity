@@ -9,7 +9,7 @@
 .gallery-widget .main-image.enter-from-right, 
 .gallery-widget .main-image.exit-to-left {
   -webkit-animation-duration: 1.5s;
-  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease;
 }
 
 @-webkit-keyframes enterFromRight {
