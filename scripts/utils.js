@@ -1,6 +1,6 @@
 'use strict'
 
-/* ----------------------------------------------------- */
+/* -------------------------------------------------------------- */
 // Iterate over items in array with a callback function 
 // that receives the item and the index as arguments
 
@@ -9,10 +9,8 @@ function forEach(array, callback) {
     callback(array[index], index);
   }
 }
-/* ----------------------------------------------------- */
 
-
-/* ----------------------------------------------------- */
+/* -------------------------------------------------------------- */
 // Return a new DOM element with class and attributes
 
 function createElement(options) {
@@ -28,11 +26,11 @@ function createElement(options) {
 
   return element;
 }
-/* ----------------------------------------------------- */
 
-/* ----------------------------------------------------- */
+/* -------------------------------------------------------------- */
 // Format the image number
+
 function formatImageNumber(number, total) {
   return number + '<span class="smaller"> / ' + total + '</span>';
 }
-/* ----------------------------------------------------- */
+/* -------------------------------------------------------------- */

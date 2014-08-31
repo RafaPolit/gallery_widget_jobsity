@@ -1,7 +1,7 @@
 /* -------------------------------------------------- */
 /* Scrollbar ---------------------------------------- */
 .gallery-widget ::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
 }
 /* Track */
 .gallery-widget ::-webkit-scrollbar-track {
