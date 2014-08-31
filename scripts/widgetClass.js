@@ -6,7 +6,9 @@ var Widget = function(widget) {
 
     widget: widget,
 
-    elements: { activeImage: 0, mainImages: [], thumbnails: [] },
+    elements: { mainImages: [], thumbnails: [] },
+
+    status: { activeImage: 0 },
 
     initializeWidget: function() {
       this.initializeThumbnails();
@@ -17,11 +19,11 @@ var Widget = function(widget) {
     changeImage: function(event) {
       var clickedImage = event.target.getAttribute('data-index');
 
-      this.elements.mainImages[this.elements.activeImage].className = 'main-image exit-to-left on-left';
+      this.elements.mainImages[this.status.activeImage].className = 'main-image exit-to-left on-left';
       this.elements.mainImages[clickedImage].className = 'main-image enter-from-right';
       this.setActiveThumbnail(clickedImage);
 
-      this.elements.activeImage = clickedImage;
+      this.status.activeImage = clickedImage;
     },
 
     initializeThumbnails: function() {

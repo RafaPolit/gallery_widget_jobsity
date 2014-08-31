@@ -87,6 +87,11 @@ describe('Gallery Widget', function() {
 
     describe('changeImage', function() {
 
+      beforeEach(function() {
+        var event = { target: thumbnailWidget.elements.thumbnails[0] };
+        thumbnailWidget.changeImage(event);
+      });
+
       it('should set the active class on the corresponding thumbnail and remove it from others', function() {
         var firstImage = thumbnailWidget.elements.thumbnails[0];
         var secondImage = thumbnailWidget.elements.thumbnails[1];
@@ -106,6 +111,17 @@ describe('Gallery Widget', function() {
 
         expect(thumbnailWidget.elements.mainImages[0].className).toBe('main-image exit-to-left on-left');
         expect(thumbnailWidget.elements.mainImages[2].className).toBe('main-image enter-from-right');
+      });
+
+      it('should set the Active Image', function() {
+        var thirdImage = thumbnailWidget.elements.thumbnails[2];
+        var event = { target: thirdImage };
+        
+        expect(thumbnailWidget.status.activeImage).toBe('0');
+        
+        thumbnailWidget.changeImage(event);
+
+        expect(thumbnailWidget.status.activeImage).toBe('2');
       });
 
     });
