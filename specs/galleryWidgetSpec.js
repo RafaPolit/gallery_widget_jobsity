@@ -35,6 +35,9 @@ describe('Gallery Widget', function() {
       expect(thumbnailWidget.elements.thumbnailContainer)
       .toBe(thumbnailElement.getElementsByClassName('thumbnail-scroll')[0]);
 
+      expect(singleWidget.elements.imageNumber)
+      .toBe(singleElement.getElementsByClassName('image-number')[0]);
+
       expect(thumbnailWidget.elements.thumbnails.length).toBe(3);
       expect(thumbnailWidget.elements.mainImages.length).toBe(3);
     });
@@ -105,6 +108,15 @@ describe('Gallery Widget', function() {
         expect(singleElement.className).toBe('gallery-widget single-mode');
       });
 
+      it('should add an image-number section only for single mode widgets', function() {
+        expect(singleElement.getElementsByClassName('image-number').length).toBe(1);
+        expect(thumbnailElement.getElementsByClassName('image-number').length).toBe(0);
+      });
+
+      it('should add text to the image-number section', function() {
+        expect(singleWidget.elements.imageNumber.innerHTML).toBe('1<span class="smaller"> / 3</span>');
+      });
+
       it('should add an onclick function if on single mode', function() {
         var mainImage = singleWidget.elements.mainImages[1].getElementsByTagName('img')[0];
         expect(mainImage.onclick).toEqual(jasmine.any(Function));
@@ -163,6 +175,10 @@ describe('Gallery Widget', function() {
 
       it('should set image 2 (index 1) as Active Image', function() {
         expect(singleWidget.status.activeImage).toBe('1');
+      });
+
+      it('should set 2/n on the image number section', function() {
+        expect(singleWidget.elements.imageNumber.innerHTML).toBe('2<span class="smaller"> / 3</span>');
       });
 
       it('should set image 1(index 0) as Active Image after last image', function() {

@@ -96,6 +96,11 @@
   position: absolute;
   right: 0px;
   bottom: 0px;
-  font-size: 40px;
+  font-size: 60px;
   color: #999;
+}
+
+.gallery-widget .image-number .smaller {
+  font-size: 30px;
+  color: #888;
 }

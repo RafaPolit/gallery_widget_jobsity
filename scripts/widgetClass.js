@@ -8,14 +8,16 @@ var Widget = function(widget) {
 
     elements: { mainImages: [], thumbnails: [] },
 
-    status: { activeImage: 0 },
+    status: { activeImage: 0, dataMode: 'thumbnail' },
 
     initializeWidget: function() {
-      if(this.widget.getAttribute('data-mode') === 'single') {
+      this.status.dataMode = this.widget.getAttribute('data-mode');
+      if(this.status.dataMode === 'single') {
         this.widget.className = 'gallery-widget single-mode';
       }
 
       this.initializeThumbnails();
+      this.initializeImageNumber();
       this.createMainImageContainer(this.widget);
       this.widget.appendChild(this.elements.mainImageContainer);
     },
@@ -34,14 +36,23 @@ var Widget = function(widget) {
       var clickedImage = event.target.getAttribute('data-index');
       var nextImageIndex = ((Number(clickedImage) + 1) % this.elements.mainImages.length);
       var nextImageEvent = { target: this.elements.thumbnails[nextImageIndex] };
+      this.elements.imageNumber.innerHTML = formatImageNumber(nextImageIndex + 1, this.elements.thumbnails.length);
       this.changeImage(nextImageEvent);
     },
 
     initializeThumbnails: function() {
       this.createThumbnailContainer(this.widget);
 
-      if(this.widget.getAttribute('data-mode') === 'thumbnail') {
+      if(this.status.dataMode === 'thumbnail') {
         this.widget.appendChild(this.elements.thumbnailContainer);
+      }
+    },
+
+    initializeImageNumber: function() {
+      this.elements.imageNumber = createElement({ tag: 'div', class: 'image-number' });
+      this.elements.imageNumber.innerHTML = formatImageNumber(1, this.elements.thumbnails.length);
+      if(this.status.dataMode === 'single') {
+        this.widget.appendChild(this.elements.imageNumber);
       }
     },
 
@@ -143,4 +154,8 @@ function createElement(options) {
   }
 
   return element;
+}
+
+function formatImageNumber(number, total) {
+  return number + '<span class="smaller"> / ' + total + '</span>';
 }
