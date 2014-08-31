@@ -1,0 +1,35 @@
+.gallery-widget .main-image.enter-from-right {
+  -webkit-animation-name: enterFromRight;
+}
+
+.gallery-widget .main-image.exit-to-left {
+  -webkit-animation-name: exitToLeft;
+}
+
+.gallery-widget .main-image.enter-from-right, 
+.gallery-widget .main-image.exit-to-left {
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes enterFromRight {
+    from { left: 740px; }
+    to { left: 0px; }
+}
+
+@-webkit-keyframes exitToLeft {
+    from { left: 0px; }
+    to { left: -740px; }
+}
+
+
+.gallery-widget .thumbnail.active {
+  -webkit-animation-name: growBlur;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease-out;
+}
+
+@-webkit-keyframes growBlur {
+    from { -webkit-box-shadow: 0px 0px 0px rgba(250,140,0,1); }
+    to { -webkit-box-shadow: 0px 0px 15px rgba(250,140,0,1); }
+}

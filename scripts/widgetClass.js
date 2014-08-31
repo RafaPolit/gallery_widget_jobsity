@@ -6,7 +6,7 @@ var Widget = function(widget) {
 
     widget: widget,
 
-    elements: { thumbnails: [] },
+    elements: { activeImage: 0, mainImages: [], thumbnails: [] },
 
     initializeWidget: function() {
       this.initializeThumbnails();
@@ -16,7 +16,12 @@ var Widget = function(widget) {
 
     changeImage: function(event) {
       var clicked_image = event.srcElement.getAttribute('data-index');
+
+      this.elements.mainImages[this.elements.activeImage].className = 'main-image exit-to-left on-left';
+      this.elements.mainImages[clicked_image].className = 'main-image enter-from-right';
       this.setActiveThumbnail(clicked_image);
+
+      this.elements.activeImage = clicked_image;
     },
 
     initializeThumbnails: function() {
@@ -74,15 +79,28 @@ var Widget = function(widget) {
 
     createMainImageContainer: function() {
       this.elements.mainImageContainer = createElement({ tag: 'div', class: 'main-image-container' });
-      this.createMainImage();
+      this.createMainImages();
     },
 
-    createMainImage: function() {
-      var mainImage = createElement({ tag: 'div', class: 'main-image enter-from-right' });
-      var first_image_src = this.widget.getElementsByTagName('img')[0].getAttribute('src');
-      var img = createElement({ tag: 'img', attributes: { src: first_image_src } });
+    createMainImages: function() {
+      for(var index = 0; index < this.elements.thumbnails.length; index++) {
+        this.createMainImage(index);
+      }
+    },
 
-      mainImage.appendChild(img);
+    createMainImage: function(index) {
+      var className = 'main-image ' + ((index === 0) ? 'enter-from-right' : 'on-right');
+      var mainImage = createElement({ tag: 'div', class: className });
+
+      var tableCell = createElement({ tag: 'div', class: 'table-cell'});
+      mainImage.appendChild(tableCell);
+
+      var img = createElement(
+        {tag: 'img', attributes: { src: this.elements.thumbnails[index].getAttribute('src') }
+      });
+
+      tableCell.appendChild(img);
+      this.elements.mainImages.push(mainImage);
 
       this.elements.mainImageContainer.appendChild(mainImage);
     }
@@ -95,7 +113,10 @@ var Widget = function(widget) {
 
 function createElement(options) {
   var element = document.createElement(options.tag);
-  element.className = options.class;
+
+  if(options.class) {
+    element.className = options.class;
+  }
 
   for (var attr in options.attributes) {
     element.setAttribute(attr, options.attributes[attr]);
