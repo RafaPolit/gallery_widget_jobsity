@@ -15,14 +15,11 @@ describe('Gallery Widget', function() {
   var singleWidget;
 
   beforeEach(function() {
-    thumbnailWidget = galleryWidget.widgets[0];
-    singleWidget = galleryWidget.widgets[1];
+    thumbnailWidget = document.getElementsByClassName('gallery-widget')[0];
+    singleWidget = document.getElementsByClassName('gallery-widget')[1];
   });
 
   describe('on Initialization', function() {
-    it('should assign the widgets array with the different elements containing class', function() {
-      expect(galleryWidget.widgets.length).toBe(2);
-    });
 
     describe('Thumbnail mode', function() {
 
@@ -33,11 +30,18 @@ describe('Gallery Widget', function() {
 
       it('should append all the images inside the Thumbnail section', function() {
         var thumbnail_container = thumbnailWidget.getElementsByClassName('thumbnail-scroll')[0];
-        expect(thumbnail_container.getElementsByTagName('img').length).toBe(3);
-
         var second_image = thumbnail_container.getElementsByTagName('img')[1];
+
+        expect(thumbnail_container.getElementsByTagName('img').length).toBe(3);
         expect(second_image.getAttribute('src')).toBe('images/Florencia_Pieta_5780.jpg');
         expect(second_image.className).toBe('thumbnail');
+      });
+
+      it('should append the active class to the first image', function() {
+        var thumbnail_container = thumbnailWidget.getElementsByClassName('thumbnail-scroll')[0];
+        var first_image = thumbnail_container.getElementsByTagName('img')[0];
+
+        expect(first_image.className).toBe('thumbnail active');
       });
       
     });
