@@ -24,6 +24,24 @@ describe('Gallery Widget', function() {
       expect(galleryWidget.widgets.length).toBe(2);
     });
 
+    describe('Thumbnail mode', function() {
+
+      it('should create the Thumbnail section', function() {
+        expect(thumbnailWidget.getElementsByClassName('thumbnail-scroll').length).toBe(1);
+        expect(singleWidget.getElementsByClassName('thumbnail-scroll').length).toBe(0);
+      });
+
+      it('should append all the images inside the Thumbnail section', function() {
+        var thumbnail_container = thumbnailWidget.getElementsByClassName('thumbnail-scroll')[0];
+        expect(thumbnail_container.getElementsByTagName('img').length).toBe(3);
+
+        var second_image = thumbnail_container.getElementsByTagName('img')[1];
+        expect(second_image.getAttribute('src')).toBe('images/Florencia_Pieta_5780.jpg');
+        expect(second_image.className).toBe('thumbnail');
+      });
+      
+    });
+
     describe('Main Image', function() {
 
       it('should append the main image container structure into widgets of both modes', function() {

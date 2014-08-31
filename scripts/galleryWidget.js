@@ -2,11 +2,16 @@
 
 var galleryWidget = {
 
-  widgets: [],
-
   initializeWidgets: function() {
     this.widgets = document.getElementsByClassName('gallery-widget');
+
     for(var index = 0; index < this.widgets.length; index ++) {
+
+      if(this.widgets[index].getAttribute('data-mode') === 'thumbnail') {
+        var thumbnailContainer = createThumbnailContainer(this.widgets[index]);
+        this.widgets[index].appendChild(thumbnailContainer);
+      }
+
       var mainImageContainer = createMainImageContainer(this.widgets[index]);
       this.widgets[index].appendChild(mainImageContainer);
     }
@@ -14,7 +19,25 @@ var galleryWidget = {
 
 };
 
+/* -------------------------------------------------------------- */
+/* Window Onload - All images loaded ---------------------------- */
 window.addEventListener('load', galleryWidget.initializeWidgets);
+/* -------------------------------------------------------------- */
+
+function createThumbnailContainer(widget) {
+  var thumbnailContainer = document.createElement('div');
+  thumbnailContainer.className =  'thumbnail-scroll';
+
+  for(var index = 0; index < widget.getElementsByTagName('img').length; index++) {
+    var img = widget.getElementsByTagName('img')[index].cloneNode();
+    img.className = 'thumbnail';
+    thumbnailContainer.appendChild(img);
+    var br = document.createElement('br');
+    thumbnailContainer.appendChild(br);
+  }
+  
+  return thumbnailContainer; 
+}
 
 function createMainImageContainer(widget) {
   var mainImageContainer = document.createElement('div');
