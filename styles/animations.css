@@ -1,13 +1,13 @@
-.gallery-widget .main-image.enter-from-right {
+.gallery-widget .main-image.enter-stage {
   -webkit-animation-name: enterFromRight;
 }
 
-.gallery-widget .main-image.exit-to-left {
+.gallery-widget .main-image.exit-stage {
   -webkit-animation-name: exitToLeft;
 }
 
-.gallery-widget .main-image.enter-from-right, 
-.gallery-widget .main-image.exit-to-left {
+.gallery-widget .main-image.enter-stage, 
+.gallery-widget .main-image.exit-stage {
   -webkit-animation-duration: 1.5s;
   -webkit-animation-timing-function: ease;
 }

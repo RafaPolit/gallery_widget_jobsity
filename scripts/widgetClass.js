@@ -1,3 +1,5 @@
+/* JSHint globals */
+/* global forEach, createElement  */
 'use strict';
 
 var Widget = function(widget) {
@@ -25,8 +27,8 @@ var Widget = function(widget) {
     changeImage: function(event) {
       var clickedImage = event.target.getAttribute('data-index');
 
-      this.elements.mainImages[this.status.activeImage].className = 'main-image exit-to-left on-left';
-      this.elements.mainImages[clickedImage].className = 'main-image enter-from-right';
+      this.elements.mainImages[this.status.activeImage].className = 'main-image exit-stage on-left';
+      this.elements.mainImages[clickedImage].className = 'main-image enter-stage';
       this.setActiveThumbnail(clickedImage);
 
       this.status.activeImage = clickedImage;
@@ -66,10 +68,10 @@ var Widget = function(widget) {
       var _this = this;
       function clickItem(event) { _this.changeImage(event); }
 
-      for(var index = 0; index < this.widget.getElementsByTagName('img').length; index++) {
-        this.createThumbnail(index, clickItem);
-        this.setActiveThumbnail(0);
-      }
+      forEach(this.widget.getElementsByTagName('img'), function(img, index) {
+        _this.createThumbnail(index, clickItem);
+        _this.setActiveThumbnail(0);
+      });
     },
 
     createThumbnail: function(index, clickItem) {
@@ -105,13 +107,13 @@ var Widget = function(widget) {
       var _this = this;
       function clickItem(event) { _this.nextImage(event); }
 
-      for(var index = 0; index < this.elements.thumbnails.length; index++) {
-        this.createMainImage(index, clickItem);
-      }
+      forEach(this.elements.thumbnails, function(thumbnail, index) {
+        _this.createMainImage(index, clickItem);
+      });
     },
 
     createMainImage: function(index, clickItem) {
-      var className = 'main-image ' + ((index === 0) ? 'enter-from-right' : 'on-right');
+      var className = 'main-image ' + ((index === 0) ? 'enter-stage' : 'on-right');
       var mainImage = createElement({ tag: 'div', class: className });
       var tableCell = this.createTableCell(index, clickItem);
 
@@ -149,20 +151,6 @@ var Widget = function(widget) {
 };
 
 // ---
-
-function createElement(options) {
-  var element = document.createElement(options.tag);
-
-  if(options.class) {
-    element.className = options.class;
-  }
-
-  for (var attr in options.attributes) {
-    element.setAttribute(attr, options.attributes[attr]);
-  }
-
-  return element;
-}
 
 function formatImageNumber(number, total) {
   return number + '<span class="smaller"> / ' + total + '</span>';

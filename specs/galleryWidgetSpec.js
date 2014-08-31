@@ -1,13 +1,6 @@
 /* global galleryWidget */
 'use strict';
 
-/* ---------------------------------------------------------- */
-/* hook to allow deferred scripts to run after initialization */
-document.addEventListener('DOMContentLoaded', function() {
-  galleryWidget.initializeWidgets();
-});
-/* ---------------------------------------------------------- */
-
 describe('Gallery Widget', function() {
 
   var thumbnailElement;
@@ -49,7 +42,7 @@ describe('Gallery Widget', function() {
         expect(thumbnailElement.getElementsByClassName('main-image').length).toBe(3);
 
         var firstImage = thumbnailElement.getElementsByClassName('main-image')[0];
-        expect(firstImage.className).toBe('main-image enter-from-right');
+        expect(firstImage.className).toBe('main-image enter-stage');
         expect(firstImage.getElementsByTagName('img').length).toBe(1);
         expect(firstImage.getElementsByTagName('img')[0].getAttribute('src')).toBe('images/Barcelona_MNAC_9671.jpg');
 
@@ -161,8 +154,8 @@ describe('Gallery Widget', function() {
       it('should swap currently staged mainImage with newly selected one', function() {
         clickElement(thumbnailWidget.elements.thumbnails[2]);
 
-        expect(thumbnailWidget.elements.mainImages[0].className).toBe('main-image exit-to-left on-left');
-        expect(thumbnailWidget.elements.mainImages[2].className).toBe('main-image enter-from-right');
+        expect(thumbnailWidget.elements.mainImages[0].className).toBe('main-image exit-stage on-left');
+        expect(thumbnailWidget.elements.mainImages[2].className).toBe('main-image enter-stage');
       });
 
     });
