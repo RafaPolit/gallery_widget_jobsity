@@ -93,10 +93,7 @@ var widgetDOM = function(widget) {
     createTableCellImg: function(index, clickItem) {
       var img = createElement({
         tag: 'img',
-        attributes: {
-          src: this.thumbnails[index].getAttribute('src'),
-          'data-index': index
-        }
+        attributes: this.getImageAttributes(index)
       });
 
       if(widget.status.dataMode === 'single') {
@@ -104,6 +101,13 @@ var widgetDOM = function(widget) {
       }
 
       return img;
+    },
+
+    getImageAttributes: function(index) {
+      return {
+        src: this.thumbnails[index].getAttribute('src'),
+        'data-index': index
+      };
     },
 
     thumbnails: [],
