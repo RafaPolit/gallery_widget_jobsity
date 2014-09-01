@@ -85,6 +85,34 @@ Estructura
 * _SpecRunner.html_ Ejecutador de Batería de Tests.
 
 
+Observaciones
+-------------
+El Widget se ha concebido como una 'prueba de concepto' para este ejercicio.  Sin embargo existen varias mejoras (algunas de ellas indispensables) que serían importantes para un servicio listo para usar en producción:
+
+#### Rendimiento
+* Implementar 'lazy loading' de las imágenes para que la carga inicial sea casi instantánea.
+* Utilizar imágenes optimizadas para thumbnails en lugar de utilizar las imágenes 'full size'.
+* Combinar y minificar los cuatro archivos JS.
+* Combinar y minificar los cuatro archivos CSS.
+
+#### Funcionalidad
+* (1) Al ser una prueba de concepto, el Widget requiere un espacio de 960px para implementarse y tiene tanto sus anchos como altos definidos en el CSS.  Sería importante desarrollar un Widget 'responsive' que se adapte a múltiples tamaños y que pueda hacer 'down-size' para distintos dispositivos.
+* Migrar los CSS a LESS o SASS para facilitar el mantenimiento y cambio de tamaños, etc.
+* Configuraciones adicionales del widget como posición de los thumbnails, distintas animaciones, etc.
+* Hacer que la versión 'single' tenga manera de ir a la siguiente o la anterior.
+* Crear mensajes de 'no hay imágenes en la lista' u otra alternativa cuando el Widget se queda sin imágenes.
+
+
+Fotografías
+-----------
+Las fotografías incluídas en el proyecto son para efectos de demostración y está prohibido su uso o distribución.
+
+
+[www.rafaelpolit.com](https://www.rafaelpolit.com)
+
+
+
+
 
 
 
