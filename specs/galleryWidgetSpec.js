@@ -22,7 +22,7 @@ describe('Gallery Widget', function() {
       expect(GalleryWidget.widgets.length).toBe(3);
     });
 
-    it('should populate each widget elements property', function() {
+    it('should populate each widget DOM property with created elements', function() {
       expect(thumbnailWidget.DOM.mainImageContainer)
       .toBe(thumbnailElement.getElementsByClassName('main-image-container')[0]);
 
