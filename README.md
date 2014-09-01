@@ -39,7 +39,7 @@ El Widget está compuesto de scripts JavaScript y archivos de estilo CSS que deb
 
 Modo de uso
 -----------
-Los Widgets se instancian automáticamente en el evento window.onload para asegurar que las imágenes requeridas están previamente cargadas.  Para crear un widget, es necesario crear un elemento DIV de HTML con la clase **'gallery-widget'** y que ésta esté contenida dentro de un elemento con al menos 960px disponibles (1).
+Los Widgets se instancian automáticamente en el evento window.onload para asegurar que las imágenes requeridas están previamente cargadas.  Para crear un widget, es necesario crear un elemento DIV de HTML con la clase **'gallery-widget'** y que esté contenido dentro de un elemento con al menos 960px disponibles (1).
 
 Los modos de creación son:
 
