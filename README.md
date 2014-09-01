@@ -66,6 +66,19 @@ Los modos de creación son:
 ```
 
 
+Testing
+-------
+El Widget ha sido desarrollado con la metodología de XP: TDD (Test Driven Development), y la batería de tests usada se encuentra en la carpeta _**specs**_ con el nombre de _galleryWidgetSpec.js_.  Esta batería de pruebas automatizadas facilitó varios 'refactors' realizados a lo largo del desarrollo, y sirve como un test exhaustivo de integración de los componentes del Widget.
+
+Es también de gran utilidad como referencia para que otros desarrolladores puedan ver que 'debe' hacer el Widget y cómo lo implementa.  Esta batería de tests está creada sobre la versión 'stand-alone' de Jasmin y se puede ejectuar corriendo el archivo:
+
+```
+ SpecRunner.html
+```
+
+en la raíz del proyecto.
+
+
 Estructura
 ----------
 
