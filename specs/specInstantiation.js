@@ -1,9 +1,11 @@
-/* global galleryWidget */
+/* global GalleryWidget */
 'use strict';
 
 /* ---------------------------------------------------------- */
-/* hook to allow deferred scripts to run after initialization */
+/* hook to allow GalleryWidget to run before testing scripts  */
+
 document.addEventListener('DOMContentLoaded', function() {
-  galleryWidget.initializeWidgets();
+  GalleryWidget.initializeWidgets();
 });
+
 /* ---------------------------------------------------------- */

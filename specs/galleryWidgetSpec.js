@@ -1,4 +1,4 @@
-/* global galleryWidget */
+/* global GalleryWidget */
 'use strict';
 
 describe('Gallery Widget', function() {
@@ -10,15 +10,15 @@ describe('Gallery Widget', function() {
 
   beforeEach(function() {
     thumbnailElement = document.getElementsByClassName('gallery-widget')[0];
-    thumbnailWidget = galleryWidget.widgets[0];
+    thumbnailWidget = GalleryWidget.widgets[0];
     singleElement = document.getElementsByClassName('gallery-widget')[1];
-    singleWidget = galleryWidget.widgets[1];
+    singleWidget = GalleryWidget.widgets[1];
   });
 
   describe('on Initialization', function() {
 
-    it('should include each widget instance in the widgets property', function() {
-      expect(galleryWidget.widgets.length).toBe(2);
+    it('should instance all widgets without failing if no images present', function() {
+      expect(GalleryWidget.widgets.length).toBe(3);
     });
 
     it('should populate each widget elements property', function() {

@@ -2,9 +2,7 @@
 /* global Widget, forEach  */
 'use strict';
 
-/* -------------------------------------------------------------- */
-// Main: Gallery Widget
-var galleryWidget = {
+var GalleryWidget = {
 
   widgets: [],
 
@@ -13,18 +11,17 @@ var galleryWidget = {
     var _this = this;
 
     forEach(htmlWidgets, function(widget) {
-      widget = new Widget(widget);
+      widget = Widget(widget);
       widget.initializeWidget();
       _this.widgets.push(widget);
     });
   }
 
 };
-/* -------------------------------------------------------------- */
 
 /* -------------------------------------------------------------- */
 // Window Onload - All images loaded
 window.addEventListener('load', function() {
-  galleryWidget.initializeWidgets();
+  GalleryWidget.initializeWidgets();
 });
 /* -------------------------------------------------------------- */

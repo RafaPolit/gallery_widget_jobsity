@@ -2,7 +2,7 @@
 /* global forEach, createElement, formatImageNumber */
 'use strict';
 
-var widgetDOM = function(widget) {
+var WidgetDOM = function(widget) {
 
   return {
 

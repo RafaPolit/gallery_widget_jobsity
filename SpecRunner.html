@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Jasmine Spec Runner v2.0.2</title>
+    <title>Gallery Widget - Integration Tests</title>
 
     <link rel="shortcut icon" type="image/png" href="testing_suit/jasmine-2.0.2/jasmine_favicon.png">
     <link rel="stylesheet" type="text/css" href="testing_suit/jasmine-2.0.2/jasmine.css">
@@ -11,17 +11,25 @@
   <body>
     <div class="testing-scenarios">
       <!-- Start: Test Scenarios -->
+
+      <!-- Scenario 1: thumbnail mode -->
       <div class="gallery-widget" data-mode="thumbnail">
         <img src="images/Barcelona_MNAC_9671.jpg" alt="">
         <img src="images/Florencia_Pieta_5780.jpg" alt="">
         <img src="images/Louvre_AmoreYPsique_2018.jpg" alt="">
       </div>
 
+      <!-- Scenario 2: single mode -->
       <div class="gallery-widget" data-mode="single">
         <img src="images/Barcelona_MNAC_9671.jpg" alt="">
         <img src="images/Florencia_Pieta_5780.jpg" alt="">
         <img src="images/Louvre_Piramide_2136.jpg" alt="">
       </div>
+
+      <!-- Scenario 3: without images -->
+      <div class="gallery-widget" data-mode="thumbnail">
+      </div>
+
       <!-- End: Test Scenarios -->
     </div>
 
@@ -31,7 +39,7 @@
     <!-- include source files here... -->
     <script type="text/javascript" src="scripts/utils.js"></script>
     <script type="text/javascript" src="scripts/widgetDOMCreation.js"></script>
-    <script type="text/javascript" src="scripts/widgetClass.js"></script>
+    <script type="text/javascript" src="scripts/widget.js"></script>
     <script type="text/javascript" src="scripts/galleryWidget.js"></script>
     <!-- include spec files here... -->
     <script type="text/javascript" src="specs/specInstantiation.js"></script>

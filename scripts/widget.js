@@ -1,5 +1,5 @@
 /* JSHint globals */
-/* global widgetDOM, forEach, formatImageNumber  */
+/* global WidgetDOM, forEach, formatImageNumber  */
 'use strict';
 
 var Widget = function(widget) {
@@ -11,15 +11,13 @@ var Widget = function(widget) {
     status: { activeImage: 0, dataMode: widget.getAttribute('data-mode') },
 
     initializeWidget: function() {
-      this.DOM = new widgetDOM(this);
+      this.DOM = WidgetDOM(this);
       this.DOM.createDOMElements();
 
       this.assignThumbnailClicks();
-      this.setActiveThumbnail(0);
 
-      if(this.status.dataMode === 'single') {
-        this.assignMainImageClicks();
-      }
+      if(this.DOM.thumbnails.length) { this.setActiveThumbnail(0); }
+      if(this.status.dataMode === 'single') { this.assignMainImageClicks(); }
     },
 
     changeImage: function(event) {
