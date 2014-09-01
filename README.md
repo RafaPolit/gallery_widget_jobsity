@@ -1,5 +1,5 @@
-Gallery Widget - Jobsity JS Test
-================================
+Gallery Widget
+==============
 
 Prueba de código - Jobsity, 1 de septiembre, 2014
 
