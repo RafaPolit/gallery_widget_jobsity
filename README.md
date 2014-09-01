@@ -116,7 +116,8 @@ El Widget se ha concebido como una 'prueba de concepto' para este ejercicio.  Si
 * Migrar los CSS a LESS o SASS para facilitar el mantenimiento y cambio de tamaños, etc.
 * Configuraciones adicionales del widget como posición de los thumbnails, distintas animaciones, etc.
 * Hacer que la versión 'single' tenga manera de ir a la siguiente o la anterior.
-* Crear mensajes de 'no hay imágenes en la lista' u otra alternativa cuando el Widget se queda sin imágenes.
+* Crear mensajes de 'no hay imágenes en la lista' u otra alternativa cuando el Widget se instancia sin imágenes.
+* Poder cambiar de modo el Wiget de thumbnail a single programáticamente sin tener que re-instanciar los elementos.
 
 
 Fotografías
