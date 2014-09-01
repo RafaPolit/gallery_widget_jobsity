@@ -3,7 +3,7 @@ Gallery Widget - Jobsity JS Test
 
 Prueba de código - Jobsity, 1 de septiembre, 2014
 
-Implementación de un Gallery Widget con capacidad de tener múltiples instancias en una misma página y poder presentar la garlería en dos modalidades: Thumbnail y Single.
+Implementación de un Gallery Widget con capacidad para múltiples instancias en una misma página y modalidad dual: Thumbnail y Single.
 
 
 Requisitos
@@ -12,9 +12,9 @@ Requisitos
 * Google Chrome o Safari (según soliticado en las especificaciones) para funcionalidad avanzada (animaciones)
 
 
-Referencia
-----------
-En la raíz del proyecto se ha proporcionado el archivo **index.html** que incluye dos instancias del Gallery Widget, una en modo Thumbnail y otra en modo Single y puede tanto ejecutarse para ver la funcionalidad del Widget como inspeccionarse para ver un ejemplo de como implementar el Widget en una página WEB.
+Ejemplos
+--------
+En la raíz del proyecto se ha proporcionado el archivo _**index.html**_ que incluye dos instancias del Gallery Widget, una en modo Thumbnail y otra en modo Single y puede tanto ejecutarse para ver la funcionalidad del Widget como inspeccionarse para ver un ejemplo de como implementar el Widget en una página WEB.
 
 
 Instalación
