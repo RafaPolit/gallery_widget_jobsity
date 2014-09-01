@@ -14,7 +14,7 @@ Requisitos
 
 Ejemplos
 --------
-En la raíz del proyecto se ha proporcionado el archivo _**index.html**_ que incluye dos instancias del Gallery Widget, una en modo Thumbnail y otra en modo Single y puede ejecutarse para ver la funcionalidad del Widget.  Si se inspecciona el archivo, se puede tener una referencia rápida de como implementar el Widget en una página WEB.
+En la raíz del proyecto se ha proporcionado el archivo _**index.html**_ que incluye dos instancias del Gallery Widget, una en modo Thumbnail y otra en modo Single.  Corra el archivo para ver la implementación del Widget en una página demo.  Si se inspecciona el archivo, se puede tener una referencia rápida de cómo implementar el Widget en una página WEB.
 
 
 Instalación
