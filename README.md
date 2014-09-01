@@ -96,7 +96,7 @@ El Widget se ha concebido como una 'prueba de concepto' para este ejercicio.  Si
 * Combinar y minificar los cuatro archivos CSS.
 
 #### Funcionalidad
-* (1) Al ser una prueba de concepto, el Widget requiere un espacio de 960px para implementarse y tiene tanto sus anchos como altos definidos en el CSS.  Sería importante desarrollar un Widget 'responsive' que se adapte a múltiples tamaños y que pueda hacer 'down-size' para distintos dispositivos.
+* (1) Al ser una prueba de concepto, el Widget requiere un espacio de 960px para implementarse y tiene alto y ancho fijos.  Sería importante desarrollar funcionalidad para que el Widget sea 'responsive' y que se adapte a múltiples tamaños así como hacer 'down-size' para distintos dispositivos.
 * Migrar los CSS a LESS o SASS para facilitar el mantenimiento y cambio de tamaños, etc.
 * Configuraciones adicionales del widget como posición de los thumbnails, distintas animaciones, etc.
 * Hacer que la versión 'single' tenga manera de ir a la siguiente o la anterior.
