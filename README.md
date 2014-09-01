@@ -108,7 +108,7 @@ Fotografías
 Las fotografías incluídas en el proyecto son para efectos de demostración y está prohibido su uso o distribución.
 
 
-[www.rafaelpolit.com](https://www.rafaelpolit.com)
+[www.rafaelpolit.com](http://www.rafaelpolit.com)
 
 
 
