@@ -17,7 +17,7 @@ Ejemplos
 En la raíz del proyecto se ha proporcionado el archivo _**index.html**_ que incluye dos instancias del Gallery Widget, una en modo Thumbnail y otra en modo Single.  Corra el archivo para ver la implementación del Widget en una página demo.  Si se inspecciona el archivo, se puede tener una referencia rápida de cómo implementar el Widget en una página WEB.
 
 Adicionalmente, una copia exacta de este ejemplo se puede ver en la siguiente dirección:
-[www.rafaelpolit.com/gallery-widget](https://www.rafaelpolit.com/gallery-widget)
+[www.rafaelpolit.com/gallery-widget](http://www.rafaelpolit.com/gallery-widget)
 
 
 Instalación
