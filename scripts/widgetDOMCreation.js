@@ -1,4 +1,4 @@
-/* JSHint globals */
+/* JSHint globals - Services and utilities -------- */
 /* global forEach, createElement, formatImageNumber */
 'use strict';
 
@@ -50,14 +50,6 @@ var WidgetDOM = function(widget) {
       this.thumbnailContainer.appendChild(br);
     },
 
-    createImageNumber: function() {
-      this.imageNumber = createElement({ tag: 'div', class: 'image-number' });
-      this.imageNumber.innerHTML = formatImageNumber(1, this.thumbnails.length);
-      if(widget.status.dataMode === 'single') {
-        widget.element.appendChild(this.imageNumber);
-      }
-    },
-
     createMainImageSection: function() {
       this.mainImageContainer = createElement({ tag: 'div', class: 'main-image-container' });
       widget.element.appendChild(this.mainImageContainer);
@@ -104,6 +96,14 @@ var WidgetDOM = function(widget) {
         src: this.thumbnails[index].getAttribute('src'),
         'data-index': index
       };
+    },
+
+    createImageNumber: function() {
+      this.imageNumber = createElement({ tag: 'div', class: 'image-number' });
+      this.imageNumber.innerHTML = formatImageNumber(1, this.thumbnails.length);
+      if(widget.status.dataMode === 'single') {
+        widget.element.appendChild(this.imageNumber);
+      }
     },
 
     thumbnails: [],

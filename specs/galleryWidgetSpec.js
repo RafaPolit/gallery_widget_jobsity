@@ -1,3 +1,4 @@
+/* JSHint globals - Services and utilities -------- */
 /* global GalleryWidget */
 'use strict';
 
@@ -165,11 +166,11 @@ describe('Gallery Widget', function() {
         clickElement(singleWidget.DOM.mainImages[0].getElementsByTagName('img')[0]);
       });
 
-      it('should set image 2 (index 1) as Active Image', function() {
+      it('should set new Active Image', function() {
         expect(singleWidget.status.activeImage).toBe('1');
       });
 
-      it('should set 2/n on the image number section', function() {
+      it('should set new number in image number section', function() {
         expect(singleWidget.DOM.imageNumber.innerHTML).toBe('2<span class="smaller"> / 3</span>');
       });
 

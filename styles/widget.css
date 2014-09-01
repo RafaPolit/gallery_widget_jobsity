@@ -1,3 +1,7 @@
+/* ------------------------------------ */
+/* Gallery Widget - Container --------- */
+/* ------------------------------------ */
+
 .gallery-widget {
   position: relative;
   height: 498px;
@@ -6,6 +10,10 @@
 .gallery-widget img {
   display: none;
 }
+
+/* ------------------------------------ */
+/* Main Image Container --------------- */
+/* ------------------------------------ */
 
 .gallery-widget .main-image-container,
 .gallery-widget .main-image {
@@ -21,6 +29,10 @@
 .gallery-widget.single-mode .main-image-container {
   margin: 0px auto;
 }
+
+/* ------------------------------------ */
+/* Main Image ------------------------- */
+/* ------------------------------------ */
 
 .gallery-widget .main-image {
   position: absolute;
@@ -38,6 +50,10 @@
 .gallery-widget .main-image.on-left {
   left: -760px;
 }
+
+/* ------------------------------------ */
+/* Table Cell & IMG ------------------- */
+/* ------------------------------------ */
 
 .gallery-widget .main-image .table-cell {
   width:708px;
@@ -57,11 +73,18 @@
   max-height: 460px;
 }
 
+/* ------------------------------------ */
+/* Single mode ------------------------ */
+/* ------------------------------------ */
 
 .gallery-widget.single-mode .main-image img {
   cursor: pointer;
   box-shadow: 0px 0px 15px rgba(250,140,0,1);
 }
+
+/* ------------------------------------ */
+/* Thumbnail mode --------------------- */
+/* ------------------------------------ */
 
 .gallery-widget .thumbnail-scroll {
   padding-top: 8px;
@@ -91,6 +114,10 @@
   max-width: 120px;
   max-height: 120px;
 }
+
+/* ------------------------------------ */
+/* Image Number ----------------------- */
+/* ------------------------------------ */
 
 .gallery-widget .image-number {
   position: absolute;

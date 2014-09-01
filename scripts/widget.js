@@ -1,4 +1,4 @@
-/* JSHint globals */
+/* JSHint globals - Services and utilities ----- */
 /* global WidgetDOM, forEach, formatImageNumber  */
 'use strict';
 
@@ -47,12 +47,6 @@ var Widget = function(widget) {
       });
     },
 
-    setActiveThumbnail: function(index) {
-      var activeImage = this.DOM.thumbnails[this.status.activeImage];
-      activeImage.className = activeImage.className.replace(' active', '');
-      this.DOM.thumbnails[index].className += ' active';
-    },
-
     assignMainImageClicks: function() {
       var _this = this;
       function clickItem(event) { _this.nextImage(event); }
@@ -60,6 +54,12 @@ var Widget = function(widget) {
       forEach(this.DOM.mainImages, function(img) {
         img.getElementsByTagName('img')[0].onclick = clickItem;
       });
+    },
+
+    setActiveThumbnail: function(index) {
+      var activeImage = this.DOM.thumbnails[this.status.activeImage];
+      activeImage.className = activeImage.className.replace(' active', '');
+      this.DOM.thumbnails[index].className += ' active';
     }
 
   };

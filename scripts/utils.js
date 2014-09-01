@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /* -------------------------------------------------------------- */
 // Iterate over items in array with a callback function 

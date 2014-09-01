@@ -1,3 +1,7 @@
+/* ----------------------------------------- */
+/* Main Image Animations ------------------- */
+/* ----------------------------------------- */
+
 .gallery-widget .main-image.enter-stage {
   -webkit-animation-name: enterFromRight;
 }
@@ -22,6 +26,9 @@
     to { left: -760px; }
 }
 
+/* ----------------------------------------- */
+/* Thumbnail Animations -------------------- */
+/* ----------------------------------------- */
 
 .gallery-widget .thumbnail.active {
   -webkit-animation-name: growBlur;
